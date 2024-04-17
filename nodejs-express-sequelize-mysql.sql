@@ -8,4 +8,4 @@ show tables;
 -- RESET users
 -- truncate table users;
 select * from users;
-select * from SequelizeMeta;
+-- select * from SequelizeMeta;

@@ -8,7 +8,8 @@ const controller = new PostController();
 
 // middleware that is specific to this router
 const timeLog = (req: Request, res: Response, next: NextFunction) => {
-  console.log('Time: ', Date.now());
+  console.log(`${req.method}:Time: `, Date.now());
+
   next();
 };
 postsRouter.use(timeLog);

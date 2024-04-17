@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
 import { DataTypes, Model } from 'sequelize';
-import {
-  User as UserAttributes,
-  UserInput,
-} from '../../interfaces/user.interface';
+import { IUserAttributes, IUserInput } from '../../interfaces/user.interface';
 import sequelizeConnection from '../config/db.config';
 
-class User extends Model<UserAttributes, UserInput> implements UserAttributes {
+class User
+  extends Model<IUserAttributes, IUserInput>
+  implements IUserAttributes
+{
   id!: number;
   lastName!: string;
   userName!: string;
@@ -74,3 +74,7 @@ User.init(
     },
   }
 );
+
+export default User;
+export { User };
+

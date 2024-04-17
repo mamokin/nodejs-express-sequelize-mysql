@@ -1,7 +1,8 @@
 import { Optional } from 'sequelize';
 import { TimeStamps } from './common.interface';
+import { Filters } from './filters.interface';
 
-export interface User extends TimeStamps {
+export interface IUserAttributes extends TimeStamps {
   email: string;
   firstName: string;
   id: number;
@@ -10,5 +11,9 @@ export interface User extends TimeStamps {
   userName: string;
 }
 
-export interface UserInput extends Optional<User, 'id'> {}
-export interface UserOutput extends Required<User> {}
+export interface IUser extends Omit<IUserAttributes, 'password'> {}
+export interface IUserInput extends Optional<IUser, 'id'> {}
+export interface IUserOutput extends Required<IUser> {}
+export interface IUserFilters extends Filters {
+  userName?: string;
+}

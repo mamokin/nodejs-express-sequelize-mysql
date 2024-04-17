@@ -1,8 +1,8 @@
 import { isEmpty } from 'lodash';
 import { Model, Op, WhereOptions } from 'sequelize';
 import { Filters } from '../../interfaces/filters.interface';
-import { PostInput, PostOutput } from '../../interfaces/post.interface';
-import PostModel from '../models/post.model';
+import { IPostInput, IPostOutput } from '../../interfaces/post.interface';
+import Post from '../models/post.model';
 
 export class PostDal {
   private getAllOptions = <
@@ -20,22 +20,22 @@ export class PostDal {
     return {};
   };
 
-  async create(payload: PostInput): Promise<PostOutput> {
-    return await PostModel.create(payload);
+  async create(payload: IPostInput): Promise<IPostOutput> {
+    return await Post.create(payload);
   }
 
-  async update(id: number, payload: Partial<PostInput>): Promise<PostOutput> {
-    const post = await PostModel.findByPk(id);
+  async update(id: number, payload: Partial<IPostInput>): Promise<IPostOutput> {
+    const post = await Post.findByPk(id);
 
     if (!post) {
       throw new Error('not found');
     }
 
-    return await (payload as PostModel).update(payload);
+    return await (payload as Post).update(payload);
   }
 
-  async getById(id: number): Promise<PostOutput> {
-    const post = await PostModel.findByPk(id);
+  async getById(id: number): Promise<IPostOutput> {
+    const post = await Post.findByPk(id);
 
     if (!post) {
       throw new Error('not found');
@@ -45,15 +45,15 @@ export class PostDal {
   }
 
   async deleteById(id: number): Promise<boolean> {
-    const deletedPostCount = await PostModel.destroy({
+    const deletedPostCount = await Post.destroy({
       where: { id },
     });
 
     return !!deletedPostCount;
   }
 
-  async getAll(filters?: Filters): Promise<PostOutput[]> {
-    return PostModel.findAll({
+  async getAll(filters?: Filters): Promise<IPostOutput[]> {
+    return Post.findAll({
       where: {
         ...this.getAllOptions(filters),
       },
@@ -64,12 +64,12 @@ export class PostDal {
   }
 
   async checkSlugExists(slug: string): Promise<boolean> {
-    const ingredientWithSlug = await PostModel.findOne({
+    const postWithSlug = await Post.findOne({
       where: {
         slug,
       },
     });
 
-    return !isEmpty(ingredientWithSlug);
+    return !isEmpty(postWithSlug);
   }
 }

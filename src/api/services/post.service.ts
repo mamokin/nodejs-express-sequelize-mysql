@@ -1,12 +1,12 @@
 import { kebabCase } from 'lodash';
 import { PostDal } from '../../db/dal/post.dal';
 import { Filters } from '../../interfaces/filters.interface';
-import { PostInput, PostOutput } from '../../interfaces/post.interface';
+import { IPostInput, IPostOutput } from '../../interfaces/post.interface';
 
 const dal = new PostDal();
 
 export class PostService {
-  async create(payload: PostInput): Promise<PostOutput> {
+  async create(payload: IPostInput): Promise<IPostOutput> {
     let slug = kebabCase(payload.name);
     const slugExists = await dal.checkSlugExists(slug);
 
@@ -17,7 +17,7 @@ export class PostService {
     return dal.create(payload);
   }
 
-  async update(id: number, payload: Partial<PostInput>) {
+  async update(id: number, payload: Partial<IPostInput>) {
     if (payload.name) {
       let slug = kebabCase(payload.name);
       const slugExists = await dal.checkSlugExists(slug);
@@ -30,7 +30,7 @@ export class PostService {
     return dal.update(id, payload);
   }
 
-  async getById(id: number): Promise<PostOutput> {
+  async getById(id: number): Promise<IPostOutput> {
     return dal.getById(id);
   }
 
@@ -38,7 +38,7 @@ export class PostService {
     return dal.deleteById(id);
   }
 
-  async getAll(filters: Filters): Promise<PostOutput[]> {
+  async getAll(filters: Filters): Promise<IPostOutput[]> {
     return dal.getAll(filters);
   }
 }
