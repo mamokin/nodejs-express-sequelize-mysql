@@ -1,11 +1,11 @@
 import { DataTypes, Model } from 'sequelize';
 import {
+  IPostInput,
   Post as PostAttributes,
-  PostInput,
 } from '../../interfaces/post.interface';
 import sequelizeConnection from '../config/db.config';
 
-class Post extends Model<PostAttributes, PostInput> implements PostAttributes {
+class Post extends Model<PostAttributes, IPostInput> implements PostAttributes {
   id!: number;
   name!: string;
   slug!: string;
@@ -42,3 +42,4 @@ Post.init(
 );
 
 export default Post;
+export { Post };

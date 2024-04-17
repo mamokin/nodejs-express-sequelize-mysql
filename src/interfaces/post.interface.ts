@@ -7,5 +7,5 @@ export interface Post extends TimeStamps {
   slug: string;
 }
 
-export interface PostInput extends Optional<Post, 'id' | 'slug'> {}
-export interface PostOutput extends Required<Post> {}
+export interface IPostInput extends Optional<Post, 'id' | 'slug'> {}
+export interface IPostOutput extends Required<Post> {}
