@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response, Router } from 'express';
+import { sign } from 'jsonwebtoken';
 import { IUserFilters } from '../../interfaces/user.interface';
 import { UserController } from '../controllers/user';
 import { AuthUserDTO, CreateUserDTO, UpdateUserDTO } from '../dto/user.dto';
 
 const userRouter = Router();
 const controller = new UserController();
+const jwtSecret = process.env.JWT_TOKEN;
 
 // middleware that is specific to this router
 const timeLog = (req: Request, res: Response, next: NextFunction) => {
@@ -62,6 +64,7 @@ userRouter.get('/', async (req: Request, res: Response) => {
 });
 
 // authenticate user
+// TODO: alias endpoint /login
 userRouter.post('/authenticate', async (req: Request, res: Response) => {
   const payload: AuthUserDTO = req.body;
 
@@ -71,7 +74,19 @@ userRouter.post('/authenticate', async (req: Request, res: Response) => {
   });
 
   if (user) {
-    return res.status(200).send(user);
+    const jwtToken = sign(
+      JSON.stringify({
+        id: user.id,
+        email: user.email,
+        userName: user.userName,
+      }),
+      jwtSecret || 'dumb_secret'
+    );
+
+    return res.status(200).send({
+      user,
+      jwtToken,
+    });
   }
 
   return res.status(403).send('User is not authorized');
