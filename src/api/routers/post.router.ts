@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
+import { Filters } from '../../interfaces/filters.interface';
 import { PostController } from '../controllers/post';
 import { CreatePostDTO, UpdatePostDTO } from '../dto/post.dto';
-import { Filters } from '../interfaces/filters.interface';
 
 const postsRouter = Router();
 const controller = new PostController();

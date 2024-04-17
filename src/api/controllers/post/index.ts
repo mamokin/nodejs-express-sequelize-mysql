@@ -1,6 +1,6 @@
+import { Filters } from '../../../interfaces/filters.interface';
+import { Post } from '../../../interfaces/post.interface';
 import { CreatePostDTO, UpdatePostDTO } from '../../dto/post.dto';
-import { Filters } from '../../interfaces/filters.interface';
-import { Post } from '../../interfaces/post.interface';
 import { PostService } from '../../services/post.service';
 import { postMapper } from './post.mapper';
 

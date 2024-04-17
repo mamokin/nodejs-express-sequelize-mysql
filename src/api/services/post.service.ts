@@ -1,7 +1,7 @@
 import { kebabCase } from 'lodash';
 import { PostDal } from '../../db/dal/post.dal';
-import { Filters } from '../interfaces/filters.interface';
-import { PostInput, PostOutput } from '../interfaces/post.interface';
+import { Filters } from '../../interfaces/filters.interface';
+import { PostInput, PostOutput } from '../../interfaces/post.interface';
 
 const dal = new PostDal();
 

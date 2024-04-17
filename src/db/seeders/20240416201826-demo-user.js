@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcrypt');
 
 // npx sequelize-cli seed:generate --name demo-user
 
@@ -21,6 +22,11 @@ module.exports = {
         email: 'example@domain.com',
         createdAt: new Date(),
         updatedAt: new Date(),
+        password: (() => {
+          const unHashedPassword = 'password';
+          const salt = bcrypt.genSaltSync(10, 'a');
+          return bcrypt.hashSync(unHashedPassword, salt);
+        })(),
       },
     ]);
   },
