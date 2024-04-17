@@ -2,7 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import {
   Post as PostAttributes,
   PostInput,
-} from '../../api/interfaces/post.interface';
+} from '../../interfaces/post.interface';
 import sequelizeConnection from '../config/db.config';
 
 class Post extends Model<PostAttributes, PostInput> implements PostAttributes {

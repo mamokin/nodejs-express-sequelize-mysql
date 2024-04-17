@@ -1,7 +1,7 @@
 import { isEmpty } from 'lodash';
 import { Model, Op, WhereOptions } from 'sequelize';
-import { Filters } from '../../api/interfaces/filters.interface';
-import { PostInput, PostOutput } from '../../api/interfaces/post.interface';
+import { Filters } from '../../interfaces/filters.interface';
+import { PostInput, PostOutput } from '../../interfaces/post.interface';
 import PostModel from '../models/post.model';
 
 export class PostDal {

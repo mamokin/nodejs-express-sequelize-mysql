@@ -1,4 +1,4 @@
-import { Post, PostOutput } from '../../interfaces/post.interface';
+import { Post, PostOutput } from '../../../interfaces/post.interface';
 
 export const postMapper = {
   toPost: (ingredient: PostOutput): Post => {

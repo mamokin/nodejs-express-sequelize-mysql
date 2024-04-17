@@ -1,5 +1,5 @@
 import { Optional } from 'sequelize';
-import { Post } from '../interfaces/post.interface';
+import { Post } from '../../interfaces/post.interface';
 
 export type CreatePostDTO = Exclude<
   Post,

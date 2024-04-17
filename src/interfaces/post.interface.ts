@@ -1,12 +1,10 @@
 import { Optional } from 'sequelize';
+import { TimeStamps } from './common.interface';
 
-export interface Post {
+export interface Post extends TimeStamps {
   id: number;
   name: string;
   slug: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  deletedAt?: Date;
 }
 
 export interface PostInput extends Optional<Post, 'id' | 'slug'> {}
