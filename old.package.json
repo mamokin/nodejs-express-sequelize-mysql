@@ -1,21 +1,10 @@
 {
+  "author": "michael seaward",
   "name": "nodejs-express-sequelize-mysql",
   "version": "0.1.0",
   "description": "Node.js Rest API with Express, Sequelize & MySQL.",
-  "main": "index.js",
-  "scripts": {
-    "startReact": "node scripts/start.js",
-    "buildReact": "node scripts/build.js",
-    "testReact": "node scripts/test.js",
-    "build": "tsc --project ./",
-    "start": "nodemon",
-    "migrations": "npx sequelize-cli db:migrate",
-    "migrate:undo": "npx sequelize-cli db:migrate:undo",
-    "populateDb": "npx sequelize-cli db:seed:all",
-    "seeds": "npx sequelize-cli db:seed:all",
-    "seed:undo": "npx sequelize-cli db:seed:undo",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "ISC",
+  "main": "server.js",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
@@ -46,6 +35,7 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-resolve": "^27.4.2",
+    "jest-watch-typeahead": "^1.0.0",
     "jest": "^27.4.3",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
@@ -77,7 +67,7 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2",
     "webpack": "^5.64.4",
-    "workbox-webpack-plugin": "^6.4.1"
+    "workbox-webpack-plugin": "^6.4.1",
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.0.2",
@@ -116,8 +106,19 @@
     "rest",
     "api"
   ],
-  "author": "michael seaward",
-  "license": "ISC",
+  "scripts": {
+    "startReact": "node scripts/start.js",
+    "buildReact": "node scripts/build.js",
+    "testReact": "node scripts/test.js",
+    "build": "tsc --project ./",
+    "start": "nodemon",
+    "migrations": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "populateDb": "npx sequelize-cli db:seed:all",
+    "seeds": "npx sequelize-cli db:seed:all",
+    "seed:undo": "npx sequelize-cli db:seed:undo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -180,5 +181,10 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
