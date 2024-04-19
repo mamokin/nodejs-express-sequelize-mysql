@@ -1,30 +1,32 @@
+import React from "react";
+
 const styles = {
   container: {
-    maxWidth: '120rem',
-    padding: '0 3.2rem',
-    margin: '0 auto',
-    width: '800px'
+    maxWidth: "120rem",
+    padding: "0 3.2rem",
+    margin: "0 auto",
+    width: "800px",
   },
 
   section: {
-    marginTop: '10px',
-    padding: '2.2rem',
-    borderRadius: '0.3rem',
+    marginTop: "10px",
+    padding: "2.2rem",
+    borderRadius: "0.3rem",
     boxShadow:
-      'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px'
+      "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
   },
 
   heading: {
-    color: '#333333',
-    letterSpacing: '0.1rem'
+    color: "#333333",
+    letterSpacing: "0.1rem",
   },
 
   content: {
-    fontSize: '1.4rem',
-    color: '#4d4d4d',
-    lineHeight: '1.8rem'
-  }
-}
+    fontSize: "1.4rem",
+    color: "#4d4d4d",
+    lineHeight: "1.8rem",
+  },
+};
 const HomeModule = () => {
   return (
     <div style={styles.container}>
@@ -48,7 +50,7 @@ const HomeModule = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeModule
+export default HomeModule;
