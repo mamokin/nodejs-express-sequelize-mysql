@@ -1,11 +1,11 @@
-'use strict';
-const bcrypt = require('bcrypt');
+'use strict'
+const bcrypt = require('bcrypt')
 
 // npx sequelize-cli seed:generate --name demo-user
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -24,21 +24,21 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         password: (() => {
-          const unHashedPassword = 'password';
-          const salt = bcrypt.genSaltSync(10, 'a');
-          return bcrypt.hashSync(unHashedPassword, salt);
-        })(),
-      },
-    ]);
+          const unHashedPassword = 'password'
+          const salt = bcrypt.genSaltSync(10, 'a')
+          return bcrypt.hashSync(unHashedPassword, salt)
+        })()
+      }
+    ])
   },
 
-  async down(queryInterface, Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Users', null, {});
-  },
-};
+    return queryInterface.bulkDelete('Users', null, {})
+  }
+}
