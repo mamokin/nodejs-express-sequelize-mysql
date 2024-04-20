@@ -37,7 +37,7 @@ const About = () => {
       <div style={styles.container}>
         <div>
           <h1 style={styles.heading}> Server React DOM APIs </h1>
-          <div style={styles.list}>
+          <div>
             <p style={styles.list_item}>1. renderToPipeableStream</p>
             <p style={styles.list_item}>2. renderToStaticNodeStream</p>
             <p style={styles.list_item}>3. renderToReadableStream</p>

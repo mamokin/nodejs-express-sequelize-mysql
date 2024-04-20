@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 const styles = {
   container: {
@@ -53,4 +53,4 @@ const HomeModule = () => {
   );
 };
 
-export default HomeModule;
+export default HomeModule as FunctionComponent;
